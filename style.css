@@ -5,9 +5,10 @@ body {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
-  line-height: 1.28;
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0;
   color: #222;
   background: #fff;
 }
@@ -23,28 +24,30 @@ a:hover {
 
 .layout {
   display: grid;
-  grid-template-columns: 27vw 1fr;
-  column-gap: 3.5vw;
-  padding: 14px 16px 30px 14px;
+  grid-template-columns: 27% 1fr;
+  column-gap: 1%;
+  padding: 8px 10px;
   box-sizing: border-box;
 }
 
 .nav {
-  min-height: calc(100vh - 28px);
+  min-height: calc(100vh - 16px);
+  line-height: 1.55;
 }
 
 .name {
-  font-weight: 700;
-  margin-bottom: 38px;
+  font-weight: bold;
+  margin-bottom: 24px;
 }
 
 .projects,
 .section {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .content {
-  max-width: 1100px;
+  max-width: none;
+  line-height: 1.2;
 }
 
 .project-title {
@@ -52,8 +55,8 @@ a:hover {
 }
 
 .project-description {
-  max-width: 860px;
-  margin-bottom: 26px;
+  max-width: 780px;
+  margin-bottom: 28px;
 }
 
 .project-description p {
@@ -62,23 +65,24 @@ a:hover {
 
 .project-image {
   display: block;
-  width: 62%;
+  width: 60%;
   height: auto;
 }
 
 @media (max-width: 760px) {
+
   body {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .layout {
     display: block;
-    padding: 14px;
+    padding: 8px;
   }
 
   .nav {
     min-height: auto;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .project-image {
