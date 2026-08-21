@@ -1,3 +1,5 @@
+/* ---------- BASIC ---------- */
+
 html,
 body {
   margin: 0;
@@ -6,13 +8,12 @@ body {
 
 body {
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 13px;
   font-weight: 400;
-  font-style: normal;
   line-height: 1.2;
   letter-spacing: 0;
   color: rgba(0, 0, 0, 0.85);
-  background: #fff;
+  background: white;
 }
 
 a {
@@ -25,82 +26,116 @@ a:active {
 }
 
 
-/* 整个网站 */
-.layout {
-  position: relative;
-  min-height: 100vh;
-}
-
-
 /* ---------- NAV ---------- */
 
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
 
-  width: 35%;
-  box-sizing: border-box;
+  top: 17px;
+  left: 13px;
 
-  padding: 0.9rem 1rem 1rem 1rem;
+  width: 25vw;
+  max-width: 430px;
 
   line-height: 1.55;
-  text-align: left;
 
   z-index: 10;
 }
 
 .name {
   font-weight: 700;
-  margin-bottom: 1.8rem;
+  margin-bottom: 27px;
 }
 
 .projects {
-  margin-bottom: 2rem;
+  margin-bottom: 27px;
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 27px;
 }
 
 
 /* ---------- PROJECT PAGE ---------- */
 
-.content {
-  width: 50%;
-  min-height: 100vh;
+.project-content {
+  margin-left: 28vw;
 
-  margin-left: auto;
-  margin-right: auto;
+  width: 47vw;
+  max-width: 810px;
+
+  padding-top: 54px;
+  padding-bottom: 60px;
 
   box-sizing: border-box;
-
-  padding-top: 4rem;
-  padding-left: 4rem;
-  padding-right: 0;
-  padding-bottom: 1rem;
-
-  text-align: left;
 }
 
-.project-title {
-  margin-bottom: 2rem;
+.project-header {
+  margin-bottom: 31px;
 }
 
-.project-description {
-  margin-bottom: 2rem;
+.project-text {
+  width: 100%;
+  margin-bottom: 42px;
 }
 
-.project-description p {
-  margin-top: 0;
-  margin-bottom: 1.2em;
+.project-text p {
+  margin: 0 0 17px 0;
 }
 
 .project-image {
   display: block;
-  width: 100%;
+
+  width: 75%;
+  max-width: 610px;
+
   height: auto;
+
+  margin: 0;
+  padding: 0;
   border: 0;
+}
+
+
+/* ---------- COPYRIGHT ---------- */
+
+.copyright {
+  position: fixed;
+
+  left: 20px;
+  bottom: 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+
+  z-index: 20;
+}
+
+
+/* ---------- LANDING PAGE ---------- */
+
+.landing-page {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.landing-link {
+  position: absolute;
+
+  left: 57%;
+  top: 48%;
+
+  transform: translate(-50%, -50%);
+}
+
+.landing-image {
+  display: block;
+
+  width: 45vw;
+  max-width: 765px;
+
+  height: auto;
 }
 
 
@@ -109,26 +144,51 @@ a:active {
 @media (max-width: 760px) {
 
   body {
-    font-size: 1.05rem;
-  }
-
-  .layout {
-    display: block;
+    font-size: 13px;
   }
 
   .nav {
     position: relative;
-    width: 100%;
-    padding: 0.9rem 1rem 2rem 1rem;
+
+    top: auto;
+    left: auto;
+
+    width: auto;
+    max-width: none;
+
+    padding: 14px;
   }
 
-  .content {
-    width: 100%;
-    margin: 0;
-    padding: 1rem;
+  .project-content {
+    margin-left: 0;
+
+    width: auto;
+    max-width: none;
+
+    padding: 30px 14px 60px 14px;
   }
 
   .project-image {
     width: 100%;
+    max-width: none;
+  }
+
+  .copyright {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    margin: 50px 14px 14px 14px;
+  }
+
+  .landing-link {
+    left: 50%;
+    top: 45%;
+  }
+
+  .landing-image {
+    width: 85vw;
+    max-width: none;
   }
 }
