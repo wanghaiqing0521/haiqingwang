@@ -1,0 +1,87 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.28;
+  color: #222;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  font-style: italic;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 27vw 1fr;
+  column-gap: 3.5vw;
+  padding: 14px 16px 30px 14px;
+  box-sizing: border-box;
+}
+
+.nav {
+  min-height: calc(100vh - 28px);
+}
+
+.name {
+  font-weight: 700;
+  margin-bottom: 38px;
+}
+
+.projects,
+.section {
+  margin-bottom: 32px;
+}
+
+.content {
+  max-width: 1100px;
+}
+
+.project-title {
+  margin-bottom: 20px;
+}
+
+.project-description {
+  max-width: 860px;
+  margin-bottom: 26px;
+}
+
+.project-description p {
+  margin: 0 0 1em 0;
+}
+
+.project-image {
+  display: block;
+  width: 62%;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 15px;
+  }
+
+  .layout {
+    display: block;
+    padding: 14px;
+  }
+
+  .nav {
+    min-height: auto;
+    margin-bottom: 48px;
+  }
+
+  .project-image {
+    width: 100%;
+  }
+}
