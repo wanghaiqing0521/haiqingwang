@@ -192,3 +192,81 @@ a:active {
     max-width: none;
   }
 }
+/* ---------- CUSTOM CURSOR ---------- */
+
+html,
+body,
+a,
+img {
+  cursor: none !important;
+}
+
+.comet-cursor {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  background: #ffff00;
+
+  box-shadow:
+    0 0 3px #ffff00,
+    0 0 6px rgba(255, 255, 0, 0.8),
+    0 0 10px rgba(255, 255, 0, 0.4);
+
+  pointer-events: none;
+  z-index: 999999;
+
+  transform: translate(-50%, -50%);
+}
+
+.comet-trail {
+  position: fixed;
+
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+
+  background: #ffff00;
+
+  box-shadow:
+    0 0 2px #ffff00,
+    0 0 4px rgba(255, 255, 0, 0.7);
+
+  pointer-events: none;
+  z-index: 999998;
+
+  transform: translate(-50%, -50%);
+
+  animation: trailFade 1.8s linear forwards;
+}
+
+@keyframes trailFade {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  70% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+}
+
+@media (hover: none) {
+  html,
+  body,
+  a,
+  img {
+    cursor: auto !important;
+  }
+
+  .comet-cursor,
+  .comet-trail {
+    display: none !important;
+  }
+}
