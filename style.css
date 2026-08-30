@@ -333,3 +333,35 @@ box-shadow:
 .news-item p {
   margin: 17px 0 0 0;
 }
+
+/* ---------- CV ---------- */
+
+.cv-intro {
+  margin-bottom: 20px;
+}
+
+.cv-section {
+  margin-bottom: 30px;
+}
+
+.cv-section > strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cv-lines {
+  margin-top: 0;
+}
+
+.cv-year-group {
+  margin-top: 18px;
+}
+
+.cv-year {
+  margin-bottom: 4px;
+}
+
+.cv-indent {
+  display: inline-block;
+  margin-left: 48px;
+}
