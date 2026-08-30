@@ -273,3 +273,38 @@ img {
     display: none !important;
   }
 }
+.project-image {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.96);
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  display: block;
+
+  max-width: calc(100vw - 60px);
+  max-height: calc(100vh - 60px);
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
