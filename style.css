@@ -319,3 +319,17 @@ img {
 
   object-fit: contain;
 }
+
+/* ---------- NEWS ---------- */
+
+.news-section {
+  margin-bottom: 30px;
+}
+
+.news-heading {
+  margin-bottom: 14px;
+}
+
+.news-item p {
+  margin: 17px 0 0 0;
+}
