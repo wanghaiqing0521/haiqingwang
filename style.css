@@ -109,7 +109,7 @@ a:active {
 .copyright {
   position: fixed;
 
-  right: 13px;
+  left: 13px;
   bottom: 12px;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
