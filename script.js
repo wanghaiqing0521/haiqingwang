@@ -24,3 +24,33 @@ document.addEventListener("mousemove", (e) => {
     trail.remove();
   }, 1800);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".project-image");
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+
+  const enlargedImage = document.createElement("img");
+  lightbox.appendChild(enlargedImage);
+
+  document.body.appendChild(lightbox);
+
+  images.forEach((image) => {
+    image.addEventListener("click", () => {
+      enlargedImage.src = image.src;
+      enlargedImage.alt = image.alt || "";
+      lightbox.classList.add("active");
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      lightbox.classList.remove("active");
+    }
+  });
+});
