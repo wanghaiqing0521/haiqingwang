@@ -83,25 +83,24 @@ a:active {
   margin: 0 0 17px 0;
 }
 
+/* Portrait images */
 .project-image {
   display: block;
+
   width: 65%;
   max-width: 540px;
+
   height: auto;
+
   margin: 0 0 16px 0;
   padding: 0;
   border: 0;
 }
 
+/* Landscape images */
 .project-image.landscape {
   width: 88%;
   max-width: none;
-}
-
-/* horizontal images */
-.project-images .project-image.landscape {
-  width: 88%;
-  max-width: 88%;
 }
 
 
@@ -176,7 +175,8 @@ a:active {
     padding: 30px 14px 60px 14px;
   }
 
-  .project-image {
+  .project-image,
+  .project-image.landscape {
     width: 100%;
     max-width: none;
   }
@@ -200,6 +200,8 @@ a:active {
     max-width: none;
   }
 }
+
+
 /* ---------- CUSTOM CURSOR ---------- */
 
 html,
@@ -211,6 +213,7 @@ img {
 
 .comet-cursor {
   position: fixed;
+
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -250,6 +253,7 @@ img {
 }
 
 @keyframes trailFade {
+
   0% {
     opacity: 0.9;
     transform: translate(-50%, -50%) scale(1);
@@ -266,6 +270,7 @@ img {
 }
 
 @media (hover: none) {
+
   html,
   body,
   a,
@@ -278,13 +283,14 @@ img {
     display: none !important;
   }
 }
-.project-image {
-  cursor: zoom-in;
-}
+
+
+/* ---------- IMAGE LIGHTBOX ---------- */
 
 .lightbox {
   position: fixed;
   inset: 0;
+
   z-index: 9999;
 
   display: none;
@@ -295,7 +301,6 @@ img {
   box-sizing: border-box;
 
   background: rgba(255, 255, 255, 0.96);
-  cursor: zoom-out;
 }
 
 .lightbox.active {
