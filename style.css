@@ -88,10 +88,15 @@ a:active {
   width: 78%;
   max-width: 640px;
   height: auto;
-
   margin: 0 0 16px 0;
   padding: 0;
   border: 0;
+}
+
+/* horizontal images */
+.project-images .project-image.landscape {
+  width: 88%;
+  max-width: 88%;
 }
 
 
