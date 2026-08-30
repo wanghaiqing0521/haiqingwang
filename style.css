@@ -215,16 +215,17 @@ img {
 .comet-cursor {
   position: fixed;
 
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
 
-  background: #0066ff;
+  background: #ffff00;
 
-box-shadow:
-  0 0 3px #0066ff,
-  0 0 6px rgba(0, 102, 255, 0.8),
-  0 0 10px rgba(0, 102, 255, 0.4);
+  box-shadow:
+    0 0 2px rgba(0, 0, 0, 0.25),
+    0 0 4px #ffff00,
+    0 0 8px rgba(255, 255, 0, 0.9),
+    0 0 12px rgba(255, 255, 0, 0.5);
 
   pointer-events: none;
   z-index: 999999;
@@ -239,11 +240,12 @@ box-shadow:
   height: 2px;
   border-radius: 50%;
 
- background: #0066ff;
+  background: #ffff00;
 
-box-shadow:
-  0 0 2px #0066ff,
-  0 0 4px rgba(0, 102, 255, 0.7);
+  box-shadow:
+    0 0 1px rgba(0, 0, 0, 0.2),
+    0 0 3px #ffff00,
+    0 0 5px rgba(255, 255, 0, 0.8);
 
   pointer-events: none;
   z-index: 999998;
