@@ -85,12 +85,17 @@ a:active {
 
 .project-image {
   display: block;
-  width: 78%;
-  max-width: 640px;
+  width: 65%;
+  max-width: 540px;
   height: auto;
   margin: 0 0 16px 0;
   padding: 0;
   border: 0;
+}
+
+.project-image.landscape {
+  width: 88%;
+  max-width: none;
 }
 
 /* horizontal images */
