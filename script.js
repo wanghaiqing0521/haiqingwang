@@ -32,37 +32,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!images.length) return;
 
+  let currentIndex = 0;
+
 
   /* ---------- CREATE LIGHTBOX ---------- */
 
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
 
-  const gallery = document.createElement("div");
-  gallery.className = "lightbox-gallery";
+  const enlargedImage = document.createElement("img");
+  enlargedImage.className = "lightbox-image";
 
-  lightbox.appendChild(gallery);
+  const controls = document.createElement("div");
+  controls.className = "lightbox-controls";
+
+  const previousButton = document.createElement("button");
+  previousButton.className = "lightbox-button";
+  previousButton.innerHTML = "↑";
+  previousButton.setAttribute("aria-label", "Previous image");
+
+  const nextButton = document.createElement("button");
+  nextButton.className = "lightbox-button";
+  nextButton.innerHTML = "↓";
+  nextButton.setAttribute("aria-label", "Next image");
+
+  const closeButton = document.createElement("button");
+  closeButton.className = "lightbox-close";
+  closeButton.innerHTML = "×";
+  closeButton.setAttribute("aria-label", "Close");
+
+  controls.appendChild(previousButton);
+  controls.appendChild(nextButton);
+
+  lightbox.appendChild(enlargedImage);
+  lightbox.appendChild(controls);
+  lightbox.appendChild(closeButton);
+
   document.body.appendChild(lightbox);
 
 
-  /* ---------- ADD ALL IMAGES ---------- */
+  /* ---------- SHOW IMAGE ---------- */
 
-  images.forEach((image, index) => {
+  function showImage(index) {
 
-    const enlargedImage = document.createElement("img");
+    currentIndex = index;
 
-    enlargedImage.src = image.src;
-    enlargedImage.alt = image.alt || "";
-    enlargedImage.dataset.index = index;
+    enlargedImage.src = images[currentIndex].src;
+    enlargedImage.alt = images[currentIndex].alt || "";
 
-    gallery.appendChild(enlargedImage);
+    previousButton.style.visibility =
+      currentIndex === 0 ? "hidden" : "visible";
 
-  });
-
-
-  const galleryImages = Array.from(
-    gallery.querySelectorAll("img")
-  );
+    nextButton.style.visibility =
+      currentIndex === images.length - 1 ? "hidden" : "visible";
+  }
 
 
   /* ---------- OPEN ---------- */
@@ -71,19 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     image.addEventListener("click", () => {
 
+      showImage(index);
+
       lightbox.classList.add("active");
 
-      document.body.classList.add("lightbox-open");
-
-      requestAnimationFrame(() => {
-
-        galleryImages[index].scrollIntoView({
-          block: "center"
-        });
-
-      });
-
     });
+
+  });
+
+
+  /* ---------- PREVIOUS ---------- */
+
+  previousButton.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    if (currentIndex > 0) {
+      showImage(currentIndex - 1);
+    }
+
+  });
+
+
+  /* ---------- NEXT ---------- */
+
+  nextButton.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    if (currentIndex < images.length - 1) {
+      showImage(currentIndex + 1);
+    }
 
   });
 
@@ -91,37 +132,48 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- CLOSE ---------- */
 
   function closeLightbox() {
-
     lightbox.classList.remove("active");
-
-    document.body.classList.remove("lightbox-open");
-
   }
 
+  closeButton.addEventListener("click", (event) => {
 
-  /* Click empty background to close */
+    event.stopPropagation();
+
+    closeLightbox();
+
+  });
+
+
+  /* Click background to close */
 
   lightbox.addEventListener("click", (event) => {
 
-    if (
-      event.target === lightbox ||
-      event.target === gallery
-    ) {
+    if (event.target === lightbox) {
       closeLightbox();
     }
 
   });
 
 
-  /* Escape to close */
+  /* ---------- KEYBOARD ---------- */
 
   document.addEventListener("keydown", (event) => {
 
-    if (
-      event.key === "Escape" &&
-      lightbox.classList.contains("active")
-    ) {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "Escape") {
       closeLightbox();
+    }
+
+    if (event.key === "ArrowUp" && currentIndex > 0) {
+      showImage(currentIndex - 1);
+    }
+
+    if (
+      event.key === "ArrowDown" &&
+      currentIndex < images.length - 1
+    ) {
+      showImage(currentIndex + 1);
     }
 
   });
