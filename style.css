@@ -87,8 +87,6 @@ a:active {
 
 /* ---------- PROJECT IMAGES ---------- */
 
-/* Portrait */
-
 .project-image {
   display: block;
 
@@ -102,9 +100,6 @@ a:active {
   border: 0;
 }
 
-
-/* Landscape */
-
 .project-image.landscape {
   width: 88%;
   max-width: none;
@@ -114,13 +109,7 @@ a:active {
 /* ---------- IMAGE + CAPTION ---------- */
 
 .image-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-
-  align-items: flex-end;
-
-  gap: 14px;
+  position: relative;
 
   width: 100%;
 
@@ -130,9 +119,6 @@ a:active {
   overflow: visible;
 }
 
-
-/* Image inside caption row */
-
 .image-row .project-image {
   display: block;
 
@@ -141,33 +127,31 @@ a:active {
   margin: 0;
   padding: 0;
   border: 0;
-
-  flex-shrink: 0;
 }
 
 
-/* Portrait image inside caption row */
+/* Landscape */
 
-.image-row .project-image:not(.landscape) {
-  width: 65%;
-  max-width: 540px;
-}
-
-
-/* Landscape image inside caption row */
-
-.image-row .project-image.landscape {
+.landscape-row .project-image {
   width: 88%;
   max-width: none;
+}
+
+
+/* Portrait */
+
+.portrait-row .project-image {
+  width: 65%;
+  max-width: 540px;
 }
 
 
 /* Caption */
 
 .image-caption {
-  display: block;
+  position: absolute;
 
-  flex: 0 0 150px;
+  bottom: 0;
 
   width: 150px;
 
@@ -178,6 +162,20 @@ a:active {
   font-size: 10px;
   font-weight: 400;
   line-height: 1.2;
+}
+
+
+/* Caption position for landscape */
+
+.landscape-row .image-caption {
+  left: calc(88% + 14px);
+}
+
+
+/* Caption position for portrait */
+
+.portrait-row .image-caption {
+  left: calc(65% + 14px);
 }
 
 
@@ -322,9 +320,6 @@ button {
 .lightbox.active {
   display: flex;
 }
-
-
-/* Large image */
 
 .lightbox-image {
   display: block;
@@ -491,7 +486,7 @@ button {
   }
 
 
-  /* Normal project images */
+  /* Normal images */
 
   .project-image,
   .project-image.landscape {
@@ -503,7 +498,7 @@ button {
   /* Caption rows */
 
   .image-row {
-    display: block;
+    position: relative;
 
     width: 100%;
 
@@ -511,9 +506,8 @@ button {
   }
 
 
-  .image-row .project-image,
-  .image-row .project-image:not(.landscape),
-  .image-row .project-image.landscape {
+  .landscape-row .project-image,
+  .portrait-row .project-image {
     width: 100%;
     max-width: none;
 
@@ -521,16 +515,16 @@ button {
   }
 
 
-  .image-caption {
-    display: block;
+  .image-caption,
+  .landscape-row .image-caption,
+  .portrait-row .image-caption {
+    position: static;
 
     width: auto;
 
     margin-top: 6px;
 
     font-size: 10px;
-
-    flex: none;
   }
 
 
