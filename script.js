@@ -25,32 +25,105 @@ document.addEventListener("mousemove", (e) => {
   }, 1800);
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".project-image");
+
+  const images = Array.from(document.querySelectorAll(".project-image"));
+
+  if (!images.length) return;
+
+
+  /* ---------- CREATE LIGHTBOX ---------- */
 
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
 
-  const enlargedImage = document.createElement("img");
-  lightbox.appendChild(enlargedImage);
+  const gallery = document.createElement("div");
+  gallery.className = "lightbox-gallery";
 
+  lightbox.appendChild(gallery);
   document.body.appendChild(lightbox);
 
-  images.forEach((image) => {
-    image.addEventListener("click", () => {
-      enlargedImage.src = image.src;
-      enlargedImage.alt = image.alt || "";
-      lightbox.classList.add("active");
-    });
+
+  /* ---------- ADD ALL IMAGES ---------- */
+
+  images.forEach((image, index) => {
+
+    const enlargedImage = document.createElement("img");
+
+    enlargedImage.src = image.src;
+    enlargedImage.alt = image.alt || "";
+    enlargedImage.dataset.index = index;
+
+    gallery.appendChild(enlargedImage);
+
   });
 
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("active");
+
+  const galleryImages = Array.from(
+    gallery.querySelectorAll("img")
+  );
+
+
+  /* ---------- OPEN ---------- */
+
+  images.forEach((image, index) => {
+
+    image.addEventListener("click", () => {
+
+      lightbox.classList.add("active");
+
+      document.body.classList.add("lightbox-open");
+
+      requestAnimationFrame(() => {
+
+        galleryImages[index].scrollIntoView({
+          block: "center"
+        });
+
+      });
+
+    });
+
   });
+
+
+  /* ---------- CLOSE ---------- */
+
+  function closeLightbox() {
+
+    lightbox.classList.remove("active");
+
+    document.body.classList.remove("lightbox-open");
+
+  }
+
+
+  /* Click empty background to close */
+
+  lightbox.addEventListener("click", (event) => {
+
+    if (
+      event.target === lightbox ||
+      event.target === gallery
+    ) {
+      closeLightbox();
+    }
+
+  });
+
+
+  /* Escape to close */
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      lightbox.classList.remove("active");
+
+    if (
+      event.key === "Escape" &&
+      lightbox.classList.contains("active")
+    ) {
+      closeLightbox();
     }
+
   });
+
 });
