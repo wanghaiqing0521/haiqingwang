@@ -83,7 +83,9 @@ a:active {
   margin: 0 0 17px 0;
 }
 
+
 /* Portrait images */
+
 .project-image {
   display: block;
 
@@ -97,10 +99,41 @@ a:active {
   border: 0;
 }
 
+
 /* Landscape images */
+
 .project-image.landscape {
   width: 88%;
   max-width: none;
+}
+
+
+/* Image + caption */
+
+.image-row {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 14px;
+
+  margin: 0 0 16px 0;
+}
+
+.image-row .project-image {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.image-caption {
+  flex: 1;
+
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -180,6 +213,21 @@ a:active {
   .project-image.landscape {
     width: 100%;
     max-width: none;
+  }
+
+  .image-row {
+    display: block;
+
+    margin-bottom: 16px;
+  }
+
+  .image-row .project-image {
+    width: 100%;
+    max-width: none;
+  }
+
+  .image-caption {
+    margin-top: 6px;
   }
 
   .copyright {
@@ -322,6 +370,7 @@ img {
   object-fit: contain;
 }
 
+
 /* ---------- NEWS ---------- */
 
 .news-section {
@@ -335,6 +384,7 @@ img {
 .news-item p {
   margin: 17px 0 0 0;
 }
+
 
 /* ---------- CV ---------- */
 
