@@ -12,6 +12,7 @@ body {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
+
   color: rgba(0, 0, 0, 0.85);
   background: white;
 }
@@ -24,6 +25,7 @@ a {
 a:active {
   opacity: 0.7;
 }
+
 
 
 /* ---------- NAV ---------- */
@@ -56,6 +58,7 @@ a:active {
 }
 
 
+
 /* ---------- PROJECT PAGE ---------- */
 
 .project-content {
@@ -84,7 +87,10 @@ a:active {
 }
 
 
-/* Portrait images */
+
+/* ---------- PROJECT IMAGES ---------- */
+
+/* Portrait */
 
 .project-image {
   display: block;
@@ -100,7 +106,7 @@ a:active {
 }
 
 
-/* Landscape images */
+/* Landscape */
 
 .project-image.landscape {
   width: 88%;
@@ -108,41 +114,58 @@ a:active {
 }
 
 
+
 /* ---------- IMAGE + CAPTION ---------- */
 
 .image-row {
   display: flex;
+  flex-wrap: nowrap;
   align-items: flex-end;
+
   gap: 14px;
 
-  width: max-content;
-  max-width: none;
+  width: 100%;
 
   margin: 0 0 16px 0;
+  padding: 0;
+
+  overflow: visible;
 }
+
+
+/* Remove normal image bottom margin inside caption rows */
 
 .image-row .project-image {
   margin: 0;
-  flex: none;
+  flex-shrink: 0;
 }
 
-/* Portrait */
+
+/* Portrait image with caption */
 
 .image-row .project-image:not(.landscape) {
-  width: calc(0.65 * 47vw);
+  width: 65%;
   max-width: 540px;
 }
 
-/* Landscape */
+
+/* Landscape image with caption */
 
 .image-row .project-image.landscape {
-  width: calc(0.88 * 47vw);
-  max-width: 713px;
+  width: 88%;
+  max-width: none;
 }
 
+
+/* Caption */
+
 .image-caption {
+  display: block;
+
   width: 210px;
-  flex: none;
+  min-width: 210px;
+
+  flex: 0 0 210px;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
   font-size: 10px;
@@ -152,6 +175,7 @@ a:active {
   margin: 0;
   padding: 0;
 }
+
 
 
 /* ---------- COPYRIGHT ---------- */
@@ -169,6 +193,7 @@ a:active {
 
   z-index: 20;
 }
+
 
 
 /* ---------- LANDING PAGE ---------- */
@@ -197,98 +222,14 @@ a:active {
 }
 
 
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 760px) {
-
-  body {
-    font-size: 13px;
-  }
-
-  .nav {
-    position: relative;
-
-    top: auto;
-    left: auto;
-
-    width: auto;
-    max-width: none;
-
-    padding: 14px;
-  }
-
-  .project-content {
-    margin-left: 0;
-
-    width: auto;
-    max-width: none;
-
-    padding: 30px 14px 60px 14px;
-  }
-
-  .project-image,
-  .project-image.landscape {
-    width: 100%;
-    max-width: none;
-  }
-
-
-  /* Caption layout on mobile */
-
- .image-row {
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-.image-row .project-image,
-.image-row .project-image:not(.landscape),
-.image-row .project-image.landscape {
-  width: 100%;
-  max-width: none;
-}
-
-.image-caption {
-  width: auto;
-  margin-top: 6px;
-}
-
-  .image-caption {
-    position: static;
-
-    width: auto;
-
-    margin-top: 6px;
-  }
-
-
-  .copyright {
-    position: relative;
-
-    left: auto;
-    bottom: auto;
-
-    margin: 50px 14px 14px 14px;
-  }
-
-  .landing-link {
-    left: 50%;
-    top: 45%;
-  }
-
-  .landing-image {
-    width: 85vw;
-    max-width: none;
-  }
-}
-
 
 /* ---------- CUSTOM CURSOR ---------- */
 
 html,
 body,
 a,
-img {
+img,
+button {
   cursor: none !important;
 }
 
@@ -297,6 +238,7 @@ img {
 
   width: 6px;
   height: 6px;
+
   border-radius: 50%;
 
   background: #ffff00;
@@ -308,6 +250,7 @@ img {
     0 0 12px rgba(255, 255, 0, 0.5);
 
   pointer-events: none;
+
   z-index: 999999;
 
   transform: translate(-50%, -50%);
@@ -318,6 +261,7 @@ img {
 
   width: 2px;
   height: 2px;
+
   border-radius: 50%;
 
   background: #ffff00;
@@ -328,6 +272,7 @@ img {
     0 0 5px rgba(255, 255, 0, 0.8);
 
   pointer-events: none;
+
   z-index: 999998;
 
   transform: translate(-50%, -50%);
@@ -350,22 +295,9 @@ img {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.1);
   }
+
 }
 
-@media (hover: none) {
-
-  html,
-  body,
-  a,
-  img {
-    cursor: auto !important;
-  }
-
-  .comet-cursor,
-  .comet-trail {
-    display: none !important;
-  }
-}
 
 
 /* ---------- IMAGE LIGHTBOX ---------- */
@@ -381,6 +313,7 @@ img {
   justify-content: center;
 
   padding: 30px;
+
   box-sizing: border-box;
 
   background: rgba(255, 255, 255, 0.96);
@@ -396,17 +329,17 @@ img {
 .lightbox-image {
   display: block;
 
-  max-width: calc(100vw - 140px);
-  max-height: calc(100vh - 60px);
-
   width: auto;
   height: auto;
+
+  max-width: calc(100vw - 140px);
+  max-height: calc(100vh - 60px);
 
   object-fit: contain;
 }
 
 
-/* Previous / next */
+/* Up / down arrows */
 
 .lightbox-controls {
   position: fixed;
@@ -420,16 +353,21 @@ img {
   flex-direction: column;
 
   gap: 8px;
+
+  z-index: 10000;
 }
 
 .lightbox-button {
   appearance: none;
-  border: 0;
-  padding: 0;
+  -webkit-appearance: none;
 
   width: 28px;
   height: 28px;
 
+  margin: 0;
+  padding: 0;
+
+  border: 0;
   background: transparent;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
@@ -438,8 +376,6 @@ img {
   line-height: 1;
 
   color: rgba(0, 0, 0, 0.85);
-
-  cursor: none;
 }
 
 
@@ -451,10 +387,15 @@ img {
   top: 24px;
   right: 30px;
 
+  z-index: 10000;
+
   appearance: none;
-  border: 0;
+  -webkit-appearance: none;
+
+  margin: 0;
   padding: 0;
 
+  border: 0;
   background: transparent;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
@@ -463,9 +404,9 @@ img {
   line-height: 1;
 
   color: rgba(0, 0, 0, 0.85);
-
-  cursor: none;
 }
+
+
 
 /* ---------- NEWS ---------- */
 
@@ -480,6 +421,7 @@ img {
 .news-item p {
   margin: 17px 0 0 0;
 }
+
 
 
 /* ---------- CV ---------- */
@@ -512,4 +454,150 @@ img {
 .cv-indent {
   display: inline-block;
   margin-left: 48px;
+}
+
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 760px) {
+
+  body {
+    font-size: 13px;
+  }
+
+
+  /* NAV */
+
+  .nav {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: auto;
+    max-width: none;
+
+    padding: 14px;
+  }
+
+
+  /* PROJECT */
+
+  .project-content {
+    margin-left: 0;
+
+    width: auto;
+    max-width: none;
+
+    padding: 30px 14px 60px 14px;
+  }
+
+
+  /* Normal project images */
+
+  .project-image,
+  .project-image.landscape {
+    width: 100%;
+    max-width: none;
+  }
+
+
+  /* Caption image rows */
+
+  .image-row {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 16px;
+  }
+
+  .image-row .project-image,
+  .image-row .project-image:not(.landscape),
+  .image-row .project-image.landscape {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+  }
+
+  .image-caption {
+    width: auto;
+    min-width: 0;
+
+    margin-top: 6px;
+
+    font-size: 10px;
+
+    flex: none;
+  }
+
+
+  /* COPYRIGHT */
+
+  .copyright {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    margin: 50px 14px 14px 14px;
+  }
+
+
+  /* LANDING */
+
+  .landing-link {
+    left: 50%;
+    top: 45%;
+  }
+
+  .landing-image {
+    width: 85vw;
+    max-width: none;
+  }
+
+
+  /* LIGHTBOX */
+
+  .lightbox {
+    padding: 20px 50px 20px 20px;
+  }
+
+  .lightbox-image {
+    max-width: calc(100vw - 70px);
+    max-height: calc(100vh - 40px);
+  }
+
+  .lightbox-controls {
+    right: 12px;
+  }
+
+  .lightbox-close {
+    top: 14px;
+    right: 14px;
+  }
+
+}
+
+
+
+/* ---------- TOUCH DEVICES ---------- */
+
+@media (hover: none) {
+
+  html,
+  body,
+  a,
+  img,
+  button {
+    cursor: auto !important;
+  }
+
+  .comet-cursor,
+  .comet-trail {
+    display: none !important;
+  }
+
 }
