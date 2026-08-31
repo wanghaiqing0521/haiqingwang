@@ -115,6 +115,7 @@ a:active {
   align-items: flex-end;
   gap: 14px;
 
+  width: 120%;
   margin: 0 0 16px 0;
 }
 
@@ -123,9 +124,10 @@ a:active {
   flex-shrink: 0;
 }
 
-/* Landscape image with caption */
+/* Keep landscape images the same width as images without captions */
 .image-row .project-image.landscape {
-  width: 72%;
+  width: 73.33%;
+  max-width: none;
 }
 
 .image-caption {
