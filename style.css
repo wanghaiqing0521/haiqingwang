@@ -27,7 +27,6 @@ a:active {
 }
 
 
-
 /* ---------- NAV ---------- */
 
 .nav {
@@ -58,7 +57,6 @@ a:active {
 }
 
 
-
 /* ---------- PROJECT PAGE ---------- */
 
 .project-content {
@@ -87,7 +85,6 @@ a:active {
 }
 
 
-
 /* ---------- PROJECT IMAGES ---------- */
 
 /* Portrait */
@@ -114,11 +111,15 @@ a:active {
 }
 
 
-
 /* ---------- IMAGE + CAPTION ---------- */
 
 .image-row {
-  position: relative;
+  display: grid;
+
+  grid-template-columns: 65% 150px;
+  column-gap: 14px;
+
+  align-items: end;
 
   width: 100%;
 
@@ -129,41 +130,35 @@ a:active {
 }
 
 
+/* Landscape image row */
+
+.image-row:has(.project-image.landscape) {
+  grid-template-columns: 88% 150px;
+}
+
+
 /* Images inside caption rows */
 
-.image-row .project-image {
+.image-row .project-image,
+.image-row .project-image:not(.landscape),
+.image-row .project-image.landscape {
   display: block;
+
+  width: 100%;
+  max-width: none;
 
   height: auto;
 
   margin: 0;
   padding: 0;
-
   border: 0;
-}
-
-
-/* Portrait image with caption */
-
-.image-row .project-image:not(.landscape) {
-  width: 65%;
-  max-width: 540px;
-}
-
-
-/* Landscape image with caption */
-
-.image-row .project-image.landscape {
-  width: 88%;
-  max-width: none;
 }
 
 
 /* Caption */
 
 .image-caption {
-  position: absolute;
-  bottom: 16px;
+  position: static;
 
   width: 150px;
 
@@ -174,22 +169,9 @@ a:active {
 
   margin: 0;
   padding: 0;
+
+  align-self: end;
 }
-
-
-/* Caption next to portrait image */
-
-.image-row .project-image:not(.landscape) + .image-caption {
-  left: calc(65% + 14px);
-}
-
-
-/* Caption next to landscape image */
-
-.image-row .project-image.landscape + .image-caption {
-  left: calc(88% + 14px);
-}
-
 
 
 /* ---------- COPYRIGHT ---------- */
@@ -207,7 +189,6 @@ a:active {
 
   z-index: 20;
 }
-
 
 
 /* ---------- LANDING PAGE ---------- */
@@ -234,7 +215,6 @@ a:active {
 
   height: auto;
 }
-
 
 
 /* ---------- CUSTOM CURSOR ---------- */
@@ -311,7 +291,6 @@ button {
   }
 
 }
-
 
 
 /* ---------- IMAGE LIGHTBOX ---------- */
@@ -421,7 +400,6 @@ button {
 }
 
 
-
 /* ---------- NEWS ---------- */
 
 .news-section {
@@ -435,7 +413,6 @@ button {
 .news-item p {
   margin: 17px 0 0 0;
 }
-
 
 
 /* ---------- CV ---------- */
@@ -469,7 +446,6 @@ button {
   display: inline-block;
   margin-left: 48px;
 }
-
 
 
 /* ---------- MOBILE ---------- */
@@ -519,8 +495,9 @@ button {
 
   /* Caption rows */
 
-  .image-row {
-    position: relative;
+  .image-row,
+  .image-row:has(.project-image.landscape) {
+    display: block;
 
     width: 100%;
 
@@ -595,7 +572,6 @@ button {
   }
 
 }
-
 
 
 /* ---------- TOUCH DEVICES ---------- */
