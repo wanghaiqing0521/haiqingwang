@@ -108,30 +108,44 @@ a:active {
 }
 
 
-/* Image + caption */
+/* ---------- IMAGE + CAPTION ---------- */
 
 .image-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 14px;
+  position: relative;
 
-  width: 120%;
+  width: 100%;
   margin: 0 0 16px 0;
 }
 
 .image-row .project-image {
   margin-bottom: 0;
-  flex-shrink: 0;
 }
 
-/* Keep landscape images the same width as images without captions */
+
+/* Portrait image inside caption row */
+
+.image-row .project-image:not(.landscape) {
+  width: 65%;
+  max-width: 540px;
+}
+
+
+/* Landscape image inside caption row */
+
 .image-row .project-image.landscape {
-  width: 73.33%;
+  width: 88%;
   max-width: none;
 }
 
+
+/* Caption */
+
 .image-caption {
-  flex: 1;
+  position: absolute;
+
+  bottom: 0;
+
+  width: 220px;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
   font-size: 11px;
@@ -140,6 +154,20 @@ a:active {
 
   margin: 0;
   padding: 0;
+}
+
+
+/* Caption beside portrait image */
+
+.image-row .project-image:not(.landscape) + .image-caption {
+  left: calc(65% + 14px);
+}
+
+
+/* Caption beside landscape image */
+
+.image-row .project-image.landscape + .image-caption {
+  left: calc(88% + 14px);
 }
 
 
@@ -221,20 +249,31 @@ a:active {
     max-width: none;
   }
 
-  .image-row {
-    display: block;
 
+  /* Caption layout on mobile */
+
+  .image-row {
+    position: relative;
+
+    width: 100%;
     margin-bottom: 16px;
   }
 
-  .image-row .project-image {
+  .image-row .project-image,
+  .image-row .project-image:not(.landscape),
+  .image-row .project-image.landscape {
     width: 100%;
     max-width: none;
   }
 
   .image-caption {
+    position: static;
+
+    width: auto;
+
     margin-top: 6px;
   }
+
 
   .copyright {
     position: relative;
