@@ -403,10 +403,13 @@ img {
   display: flex;
 }
 
-.lightbox img {
+
+/* Large image */
+
+.lightbox-image {
   display: block;
 
-  max-width: calc(100vw - 60px);
+  max-width: calc(100vw - 140px);
   max-height: calc(100vh - 60px);
 
   width: auto;
@@ -415,6 +418,67 @@ img {
   object-fit: contain;
 }
 
+
+/* Previous / next */
+
+.lightbox-controls {
+  position: fixed;
+
+  right: 30px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.lightbox-button {
+  appearance: none;
+  border: 0;
+  padding: 0;
+
+  width: 28px;
+  height: 28px;
+
+  background: transparent;
+
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgba(0, 0, 0, 0.85);
+
+  cursor: none;
+}
+
+
+/* Close */
+
+.lightbox-close {
+  position: fixed;
+
+  top: 24px;
+  right: 30px;
+
+  appearance: none;
+  border: 0;
+  padding: 0;
+
+  background: transparent;
+
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgba(0, 0, 0, 0.85);
+
+  cursor: none;
+}
 
 /* ---------- NEWS ---------- */
 
