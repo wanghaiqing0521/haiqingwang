@@ -124,7 +124,7 @@ a:active {
 
   gap: 14px;
 
-  width: calc(100% + 224px);
+  width: 100%;
 
   margin: 0 0 16px 0;
   padding: 0;
@@ -162,10 +162,10 @@ a:active {
 .image-caption {
   display: block;
 
-  width: 210px;
-  min-width: 210px;
+  width: 150px;
+  min-width: 150px;
 
-  flex: 0 0 210px;
+  flex: 0 0 150px;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
   font-size: 10px;
