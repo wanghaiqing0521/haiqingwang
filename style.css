@@ -113,7 +113,6 @@ a:active {
 .image-row {
   display: flex;
   align-items: flex-end;
-
   gap: 14px;
 
   margin: 0 0 16px 0;
@@ -124,11 +123,16 @@ a:active {
   flex-shrink: 0;
 }
 
+/* Landscape image with caption */
+.image-row .project-image.landscape {
+  width: 72%;
+}
+
 .image-caption {
   flex: 1;
 
   font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
   line-height: 1.2;
 
