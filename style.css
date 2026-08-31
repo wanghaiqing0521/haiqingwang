@@ -163,8 +163,7 @@ a:active {
 
 .image-caption {
   position: absolute;
-
-  bottom: 0;
+  bottom: 16px;
 
   width: 150px;
 
