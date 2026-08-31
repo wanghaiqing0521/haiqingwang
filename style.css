@@ -124,7 +124,7 @@ a:active {
 
   gap: 14px;
 
-  width: 100%;
+  width: calc(100% + 224px);
 
   margin: 0 0 16px 0;
   padding: 0;
